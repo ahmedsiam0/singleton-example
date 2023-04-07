@@ -43,8 +43,8 @@ class CurrencyConverter {
     }
     public:
 
-    CurrencyConverter(CurrencyConverter &other) = delete;
-    void operator=(const CurrencyConverter &) = delete;
+    CurrencyConverter(CurrencyConverter&) = delete;
+    void operator=(const CurrencyConverter&) = delete;
 
     static CurrencyConverter& getInstance() {
         static CurrencyConverter instance;
@@ -73,7 +73,10 @@ int main() {
         auto exchangedAmount =
             CurrencyConverter::getInstance().Convert(baseCurrency, targetCurrency, amount);
 
-        cout << "Sum: " << exchangedAmount << endl;
+        cout << amount << " "
+             << baseCurrency << " = "
+             << exchangedAmount << " "
+             << targetCurrency << '\n';
         cout << "----------------------------------\n";
     }
 }
